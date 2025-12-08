@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">Deepak</div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="container nav-container">
+                <div class="nav-brand" aria-hidden="false">Deepak</div>
+                <button id="nav-toggle" class="hamburger" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Menu</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="primary-navigation" class="nav-menu" role="menubar">
+                    <li role="none"><a role="menuitem" href="#home">Home</a></li>
+                    <li role="none"><a role="menuitem" href="#about">About</a></li>
+                    <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+                    <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
+                    <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+                </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -187,7 +190,7 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <p>Haldwani, Uttarakhand, India</p>
+                            <p>Ranikhet, Uttarakhand, India</p>
                         </div>
                         <div class="social-links">
                             <a href="https://github.com/DeepakAd12" target="_blank" title="GitHub">
