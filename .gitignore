@@ -1,0 +1,61 @@
+# Git Ignore for Portfolio Project
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Build files
+dist/
+build/
+*.min.js
+*.min.css
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+*.psd
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Testing
+coverage/
+.nyc_output/
+
+# IDE specific
+.vscode/settings.json
+.vscode/extensions.json
