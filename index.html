@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deepak - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -173,64 +174,129 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <p>I'd love to hear from you! Feel free to reach out for collaborations or just a friendly hello.</p>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:adhikarideepak719@gmail.com">adhikarideepak719@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+916399851956">+91-6399851956</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>Ranikhet, Uttarakhand, India</p>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://github.com/DeepakAd12" target="_blank" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com/in/deepak-adhikari" target="_blank" title="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
+    <section id="contact" class="contact-section">
+  <!-- Scoped styles (only for this section) -->
+  <style>
+    /* Scoped contact styles (mobile-first) */
+    #contact.contact-section { background:#07122a; color:#fff; padding:36px 12px; }
+    #contact .contact-inner { max-width:920px; margin:0 auto; padding:0 12px; }
+    #contact .cs-title { text-align:center; font-size:1.6rem; margin:0 0 6px; font-weight:700; }
+    #contact .cs-lead { text-align:center; color:#9aa6b8; margin:0 0 16px; }
 
-                    <div class="contact-form-wrapper">
-                        <form id="contact-form" name="contact" method="POST" action="https://formspree.io/f/xvgedgpn">
-                            <!-- Replace {YOUR_FORM_ID} with your Formspree form ID -->
-                            <input type="hidden" name="_subject" value="New contact from portfolio">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_replyto" value="">
-                            <p style="display:none;">
-                                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-                            </p>
-                            <label for="name">Name</label>
-                            <input id="name" name="name" type="text" required />
+    /* Details + social */
+    #contact .cs-details { display:flex; flex-direction:column; gap:12px; align-items:center; margin:8px 0 12px; }
+    #contact .cs-item { display:flex; align-items:center; gap:10px; }
+    #contact .cs-link { color:#dff8ff; font-weight:600; font-size:0.95rem; }
 
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="email" required />
+    #contact .cs-social { display:flex; gap:12px; justify-content:center; margin:12px 0; }
 
-                            <label for="phone">Phone (optional)</label>
-                            <input id="phone" name="phone" type="tel" />
+    /* Form container */
+    #contact .cs-form-wrap { width:100%; background:rgba(255,255,255,0.02); padding:16px; border-radius:10px; box-shadow:0 8px 24px rgba(2,8,23,0.55); }
 
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+    /* Form layout: mobile-first stacked */
+    #contactForm { display:flex; flex-direction:column; gap:12px; }
+    #contactForm .form-row { display:grid; grid-template-columns: 1fr; gap:10px; }
+    #contactForm .form-field { display:flex; flex-direction:column; gap:6px; }
+    #contactForm .label-text { font-weight:700; color:#eafcff; font-size:0.95rem; }
+    #contactForm .muted { color:#9aa6b8; font-weight:600; font-size:0.78rem; margin-left:6px; }
 
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                            <div id="form-result" role="status" aria-live="polite" style="margin-top:10px;color:var(--primary-color);"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    #contactForm input, #contactForm textarea {
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);
+      background:#fff; color:#07122a; font-size:15px; box-sizing:border-box;
+    }
+    #contactForm textarea { min-height:120px; resize:vertical; }
+
+    /* actions */
+    #contact .form-actions { display:flex; flex-direction:column; gap:10px; margin-top:4px; align-items:stretch; }
+    #contact .btn-primary { background:#00c0e6; color:#032034; padding:12px 16px; border-radius:12px; font-weight:700; border:none; cursor:pointer; width:100%; }
+
+    #contact .form-status { color:#c7ffd8; font-size:0.95rem; min-height:20px; }
+
+    /* Wider screens: place details left and form right */
+    @media (min-width: 880px) {
+      #contact .top-row { display:flex; gap:20px; align-items:flex-start; justify-content:space-between; }
+      #contact .cs-details { flex:0 0 36%; align-items:flex-start; margin:0; }
+      #contact .cs-social { justify-content:flex-start; margin:8px 0 0 0; }
+      #contact .cs-form-wrap { flex:1; padding:20px; }
+      #contactForm .form-row { grid-template-columns: repeat(3, 1fr); gap:12px; }
+      #contact .form-actions { flex-direction:row; align-items:center; justify-content:flex-start; }
+      #contact .btn-primary { width:auto; min-width:160px; border-radius:28px; }
+    }
+  </style>
+
+  <div class="contact-inner container">
+    <h2 class="cs-title">Get In Touch</h2>
+    <p class="cs-lead">I'd love to hear from you. For quick replies use email or the form below.</p>
+
+    <!-- top row: details (left on desktop) + form (right on desktop) -->
+    <div class="top-row">
+      <!-- Contact details + social (stacks on mobile) -->
+      <div class="cs-details">
+        <div class="cs-item">
+          <!-- mail icon (inline svg) -->
+          <svg class="cs-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#00c0e6" d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11zM20 7l-8 5L4 7"/></svg>
+          <a class="cs-link" href="mailto:adhikarideepak719@gmail.com">adhikarideepak719@gmail.com</a>
         </div>
-    </section>
+
+        <div class="cs-item">
+          <svg class="cs-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#00c0e6" d="M6.6 10.2a15.04 15.04 0 0 0 7.2 7.2l1.9-1.9a1 1 0 0 1 1-.25 11.36 11.36 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h2.7a1 1 0 0 1 1 1c0 1.2.2 2.4.6 3.6a1 1 0 0 1-.25 1l-1.9 1.9z"/></svg>
+          <a class="cs-link" href="tel:+916399851956">+91-63998-51956</a>
+        </div>
+
+        <div class="cs-item">
+          <svg class="cs-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="#00c0e6" d="M12 2a6 6 0 0 0-6 6c0 4.5 6 12 6 12s6-7.5 6-12a6 6 0 0 0-6-6zM12 9.5A2.5 2.5 0 1 1 12 4.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          <span class="cs-link">Ranikhet, Uttarakhand, India</span>
+        </div>
+
+        <div class="cs-social" aria-label="Social links">
+          <a class="social-btn" href="https://github.com/DeepakAdhikari" target="_blank" rel="noopener" aria-label="GitHub" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; background:rgba(255,255,255,0.04); border-radius:8px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#dff8ff" d="M12 .5A12 12 0 0 0 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.3c-3.3.7-4-1.6-4-1.6-.5-1.1-1.2-1.4-1.2-1.4-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6-1 .6-1.1-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.2 11.2 0 0 1 6 0C16 5 17 5.2 17 5.2c.6 1.7.2 3 .1 3.3.8.8 1.2 1.9 1.2 3.2 0 4.6-2.7 5.5-5.3 5.8.6.5 1 1.3 1 2.5v3.7c0 .4.2.8.8.6A12 12 0 0 0 12 .5z"/></svg>
+          </a>
+
+          <a class="social-btn" href="https://www.linkedin.com/in/deepak-adhikari" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; background:rgba(255,255,255,0.04); border-radius:8px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#dff8ff" d="M4.98 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM3 8.9h3.96V21H3zM9.7 8.9h3.8v1.6h.1c.5-.9 1.7-1.9 3.5-1.9 3.8 0 4.5 2.5 4.5 5.8V21h-4V14.9c0-1.4 0-3.2-2-3.2-2 0-2.3 1.5-2.3 3.1V21h-4V8.9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form (right on desktop, full width on mobile) -->
+      <div class="cs-form-wrap" aria-labelledby="contact-heading">
+        <form id="contactForm" action="https://formspree.io/f/xvgedgpn" method="POST" novalidate>
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="New message from portfolio contact form">
+
+          <div class="form-row">
+            <label class="form-field">
+              <span class="label-text">Name</span>
+              <input name="name" type="text" placeholder="Your name" required />
+            </label>
+
+            <label class="form-field">
+              <span class="label-text">Email</span>
+              <input name="email" type="email" placeholder="you@example.com" required />
+            </label>
+
+            <label class="form-field">
+              <span class="label-text">Phone <small class="muted">(optional)</small></span>
+              <input name="phone" type="tel" placeholder="+91-XXXXXXXXXX" />
+            </label>
+          </div>
+
+          <label class="form-field">
+            <span class="label-text">Message</span>
+            <textarea name="message" rows="6" placeholder="Write your message..." required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Send Message</button>
+            <div id="formStatus" class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
+          </div>
+        </form>
+      </div>
+    </div> <!-- .top-row -->
+  </div> <!-- .contact-inner -->
+</section>
+
 
     <!-- Footer -->
     <footer class="footer">
