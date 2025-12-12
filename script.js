@@ -136,14 +136,7 @@ window.addEventListener('scroll', function() {
 });
 
 /* ==================== Form Submission Handler ==================== */
-const form = document.querySelector('form');
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Add your form submission logic here
-        console.log('Form submitted');
-    });
-}
+// Remove automatic interception. Only attach AJAX submit when form has `data-ajax="true"`.
 
 // Contact form submission handling
 document.addEventListener('DOMContentLoaded', function() {
@@ -151,13 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultEl = document.getElementById('form-result');
     if (!contactForm) return;
 
-    // If Netlify Forms is enabled (data-netlify="true"), allow the native
-    // form submission to proceed so Netlify will capture submissions.
-    // Only attach the AJAX submit handler when not using Netlify.
-    if (contactForm.getAttribute('data-netlify') === 'true') {
-        // Optionally show a message when Netlify handles submission via page reload.
-        return;
-    }
+    // Only attach AJAX submission when explicitly requested via `data-ajax="true"`.
+    if (contactForm.getAttribute('data-ajax') !== 'true') return;
 
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
