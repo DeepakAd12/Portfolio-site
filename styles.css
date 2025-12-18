@@ -608,5 +608,25 @@ section {
     .contact-info {
         grid-template-columns: 1fr;
     }
+    .project-image{
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+    .project-imgage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.project-card:hover .project-img {
+  transform: scale(1.03);
+  transition: 0.3s ease;
+}
+
+
 }
 }
